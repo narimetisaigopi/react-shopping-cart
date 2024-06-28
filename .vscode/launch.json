@@ -1,0 +1,14 @@
+{
+
+	"configurations": [
+		{
+			"name": "Launch Chrome",
+			"request": "launch",
+			"type": "chrome",
+			"userDataDir": true,
+			"url": "http://localhost:3000",
+			
+			"webRoot": "${workspaceFolder}"
+		},
+    ]
+}
