@@ -6,7 +6,7 @@ import React, { useContext } from "react";
 //   CartDispatchContext,
 //   toggleCartPopup
 // } from "../contexts/cart";
-import { CommonDispatchContext, setSearchKeyword } from "../contexts/common";
+import { CommonDispatchContext, setSearchKeyword } from "../contexts/CommonContext";
 import CartPreview from "../components/CartPreview";
 import HeaderCartCount from '../components/HeaderCartCount';
 

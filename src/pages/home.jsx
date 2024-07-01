@@ -4,8 +4,8 @@ import {
   ProductsStateContext,
   ProductsDispatchContext,
   getProducts
-} from "../contexts/products";
-import { CommonStateContext, CommonDispatchContext, setSearchCategory } from "../contexts/common";
+} from "../contexts/ProductsContext";
+import { CommonStateContext, CommonDispatchContext, setSearchCategory } from "../contexts/CommonContext";
 import CategoryList from '../components/CategoryList';
 
 const Home = () => {

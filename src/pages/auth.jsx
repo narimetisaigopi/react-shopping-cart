@@ -3,7 +3,7 @@ import { Formik, Form, Field } from "formik";
 import { useHistory, useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import _get from "lodash.get";
-import { AuthDispatchContext, signIn } from "../contexts/auth";
+import { AuthDispatchContext, signIn } from "../contexts/AuthContext";
 import Input from "../components/core/form-controls/Input";
 
 const LoginSchema = Yup.object().shape({

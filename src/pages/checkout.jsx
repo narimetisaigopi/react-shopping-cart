@@ -7,10 +7,10 @@ import {
   CHECKOUT_STEPS,
   setCheckoutStep,
   saveShippingAddress
-} from "../contexts/checkout";
-import { ProductsStateContext } from '../contexts/products';
-import { CartStateContext } from "../contexts/cart";
-import { AuthStateContext, AuthDispatchContext, signOut } from "../contexts/auth";
+} from "../contexts/CheckoutContext";
+import { ProductsStateContext } from '../contexts/ProductsContext';
+import { CartStateContext } from "../contexts/CartContext";
+import { AuthStateContext, AuthDispatchContext, signOut } from "../contexts/AuthContext";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import Input from "../components/core/form-controls/Input";

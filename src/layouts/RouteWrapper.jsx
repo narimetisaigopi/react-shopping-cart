@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
-import { AuthStateContext } from "../contexts/auth";
+import { AuthStateContext } from "../contexts/AuthContext";
 
 function RouteWrapper({
   component: Component,

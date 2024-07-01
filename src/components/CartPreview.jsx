@@ -1,20 +1,29 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import classNames from "classnames";
 import {
   CartStateContext,
-} from "../contexts/cart";
+  CartDispatchContext,
+  removeFromCart,
+  toggleCartPopup
+} from "../contexts/CartContext";
 
-import { ProductsStateContext } from '../contexts/products';
+import { ProductsStateContext } from '../contexts/ProductsContext';
 
 const CartPreview = () => {
-  const { items } = useContext(CartStateContext);
-  //const dispatch = useContext(CartDispatchContext);
+  const { items, isCartOpen } = useContext(CartStateContext);
+  const dispatch = useContext(CartDispatchContext);
   const { products, itemGroups } = useContext(ProductsStateContext);
   //const history = useHistory();
+
+  const handleRemoveCart = (cartId) => {
+      removeFromCart(dispatch,cartId);
+  }
 
   if (products === null || itemGroups === null) {
     return (
       <div className="mini-cart">
-        <a href="/" className="shopping-cart-close"><i className="ion-close-round" /></a>
+        <a href="javascript:void(0)" className="shopping-cart-close"><i className="ion-close-round" /></a>
         <div className="cart-item-title">
           <p>
             <span className="cart-count-desc">There are</span>
@@ -49,7 +58,7 @@ const CartPreview = () => {
 
   // const handleProceedCheckout = () => {
   //   toggleCartPopup(dispatch);
-    // history.push("/checkout");
+  //   history.push("/checkout");
   // };
 
 
@@ -97,14 +106,13 @@ const CartPreview = () => {
 
     items.map((x) => {
       SubTotal = SubTotal + (x.price * x.quantity);
-      return x;
     });
     return '₹' + SubTotal;
   }
 
   return (
     <div className="mini-cart">
-      <a href="/" className="shopping-cart-close"><i className="ion-close-round" /></a>
+      <a href="javascript:void(0)" className="shopping-cart-close"><i className="ion-close-round" /></a>
       <div className="cart-item-title">
         <p>
           <span className="cart-count-desc">There are</span>
@@ -114,7 +122,8 @@ const CartPreview = () => {
       </div>
       <ul className="cart-item-loop">
         {items.map((product) => {
-
+          var item1 = itemGroups?.find(x => x.item_id === product.item_id);
+          
           return <li className="cart-item">
             <div className="cart-img">
               <a href="product.html">
@@ -130,7 +139,7 @@ const CartPreview = () => {
                   &nbsp;<span className="price-box">{'₹' + (product.price * product.quantity)}</span>
                 </div>
                 <div className="delete-item-cart">
-                  <a href="empty-cart.html"><i className="icon-trash icons" /></a>
+                  <button onClick={(e) => handleRemoveCart(product.id)}><i className="icon-trash icons" /></button>
                 </div>
               </div>
             </div>

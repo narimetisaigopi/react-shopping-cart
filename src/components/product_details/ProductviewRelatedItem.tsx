@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { ProductsStateContext } from "../contexts/products";
+import { ProductsStateContext } from "../../contexts/ProductsContext";
 
 const ProductviewRelatedItem = (id : number) => {
     const { products } = useContext(ProductsStateContext);

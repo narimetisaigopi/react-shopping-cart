@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ProductsStateContext } from "../contexts/products";
+import { ProductsStateContext } from "../../contexts/ProductsContext";
 import { useParams } from 'react-router-dom';
 import ProductSizeChart from './ProductSizeChart';
 

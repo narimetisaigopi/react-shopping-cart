@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
-import { CartDispatchContext, CartStateContext, addToCart, removeToCart, removeFromCart } from "../contexts/cart";
-import { ProductsStateContext } from "../contexts/products";
+import { CartDispatchContext, CartStateContext, addToCart, removeToCart, removeFromCart } from "../contexts/CartContext";
+import { ProductsStateContext } from "../contexts/ProductsContext";
 import Counter from "./Counter";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
