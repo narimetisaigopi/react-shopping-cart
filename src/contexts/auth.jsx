@@ -72,7 +72,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     setPersistedUser(state.user);
-  }, [state.isLoggedIn]);
+  }, [setPersistedUser, state.isLoggedIn, state.user]);
 
   return (
     <AuthDispatchContext.Provider value={dispatch}>

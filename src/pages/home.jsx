@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import ProductCard from "../components/Product";
+import ProductCard from "../components/ProductCard";
 import {
   ProductsStateContext,
   ProductsDispatchContext,
@@ -22,7 +22,7 @@ const Home = () => {
       if (execItemIds.includes(product.item_id)) {
         return false;
       }
-      if (product.item_id != undefined) {
+      if (product.item_id !== undefined) {
         execItemIds.push(product.item_id);
       }
       return (

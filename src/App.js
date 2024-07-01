@@ -1,4 +1,3 @@
-import React, { useEffect, useRef } from "react";
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 import AuthProvider from "../src/contexts/auth";
 import CommonProvider from "../src/contexts/common";
@@ -13,14 +12,6 @@ import HomePage from "../src/pages/home";
 import CheckoutPage from "../src/pages/checkout";
 import "../src/assets/scss/style.scss";
 import ProductView from './components/ProductView';
-
-import {
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
-//import { useState } from "react";
 
 const App = () => {
   return (
@@ -47,9 +38,16 @@ const App = () => {
                     component={AuthPage}
                     layout={AuthLayout}
                   />
-                  <Route path={'/product'}>
-                    <ProductRouter></ProductRouter>
-                  </Route>
+                  <RouteWrapper
+                    path="/product/:id"
+                    component={ProductView}
+                    layout={CommonLayout}
+                  />
+                  {/* <Route path={'/product'}>
+                    <ProductRouter>
+
+                    </ProductRouter>
+                  </Route> */}
                 </Switch>
               </Router>
             </CheckoutProvider>
@@ -60,28 +58,28 @@ const App = () => {
   );
 };
 
-function ProductRouter() {
-  let match = useRouteMatch();
+// function ProductRouter() {
+//   let match = useRouteMatch();
 
-  return (
-    <div>
-      <h2>Topics</h2>
+//   return (
+//     <div>
+//       <h2>Topics</h2>
 
-      {/* The Topics page has its own <Switch> with more routes
-          that build on the /topics URL path. You can think of the
-          2nd <Route> here as an "index" page for all topics, or
-          the page that is shown when no topic is selected */}
-      <Switch>
-        <Route path={`${match.path}/:topicId`}>
-          <ProductView></ProductView>;
-        </Route>
-        <Route path={match.path}>
-          <h3>Please select a topic.</h3>
-        </Route>
-      </Switch>
-    </div>
-  );
+//       {/* The Topics page has its own <Switch> with more routes
+//           that build on the /topics URL path. You can think of the
+//           2nd <Route> here as an "index" page for all topics, or
+//           the page that is shown when no topic is selected */}
+//       <Switch>
+//         <Route path={`${match.path}/:topicId`}>
+//           <ProductView></ProductView>;
+//         </Route>
+//         <Route path={match.path}>
+//           <h3>Please select a topic.</h3>
+//         </Route>
+//       </Switch>
+//     </div>
+//   );
 
-}
+// }
 
 export default App;

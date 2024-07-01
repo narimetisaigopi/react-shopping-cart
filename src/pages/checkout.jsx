@@ -13,7 +13,6 @@ import { CartStateContext } from "../contexts/cart";
 import { AuthStateContext, AuthDispatchContext, signOut } from "../contexts/auth";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
-import _get from "lodash.get";
 import Input from "../components/core/form-controls/Input";
 import { phoneRegExp } from "../constants/common";
 
@@ -276,7 +275,7 @@ const Checkout = () => {
             {items.map((product) => {
               return (
                 <li className="cart-item" key={product.name}>
-                  <img className="product-image" src={product.image[0].url} />
+                  <img className="product-image" src={product.image[0].url} alt=""/>
                   <div className="product-info">
                     <p className="product-name">{product.name}</p>
                     <p className="product-price">{product.price}</p>

@@ -1,17 +1,13 @@
-import React from 'react';
-// import "./css/bootstrap.min.css"
-// import "./css/simple-line-icons.css"
-// import "./css/font-awesome.min.css"
-// import "./css/themify-icons.css"
-// import "./css/ionicons.min.css"
-// import "./css/owl.carousel.min.css"
-// import "./css/owl.theme.default.min.css"
-// import "./css/swiper.min.css" 
-// import "./css/animate.css" 
-// import "./css/style.css" 
-// import "./css/responsive.css"
+import { useContext } from "react";
+import { ProductsStateContext } from "../contexts/products";
+import { useParams } from 'react-router-dom';
 
 const ProductView = () => {
+    const { products } = useContext(ProductsStateContext);
+    const { id } = useParams();
+    const product = products.find(p => p.id.toString() === id);
+
+    console.log(`ProductView ${JSON.stringify(product)}`);
     return (
         <div>
             <header className="header-area">
@@ -66,7 +62,7 @@ const ProductView = () => {
                                             <li className="side-wrap cart-wrap">
                                                 <div className="shopping-widget">
                                                     <div className="shopping-cart">
-                                                        <a href="javascript:void(0)" className="cart-count">
+                                                        <a href="/" className="cart-count">
                                                             <span className="cart-icon-wrap">
                                                                 <span className="cart-icon"><i className="icon-handbag" /></span>
                                                                 <span id="cart-total" className="bigcounter">5</span>
@@ -135,7 +131,7 @@ const ProductView = () => {
                                                             </ul>
                                                         </li>
                                                         <li className="menu-link parent">
-                                                            <a href="javascript:void(0)" className="link-title">
+                                                            <a href="/" className="link-title">
                                                                 <span className="sp-link-title">Shop</span>
                                                                 <i className="fa fa-angle-down" />
                                                             </a>
@@ -225,13 +221,13 @@ const ProductView = () => {
                                                                     <a href="grid-list.html" className="menu-banner-title"><span>Special product</span></a>
                                                                 </li>
                                                                 <li className="menu-banner">
-                                                                    <a href="grid-list.html" className="menu-banner-img"><img src="image/menu-banner03.jpg" alt="mneu image" className="img-fluid" /></a>
+                                                                    <a href="grid-list.html" className="menu-banner-img"><img src="image/menu-banner03.jpg" alt="mneu" className="img-fluid" /></a>
                                                                     <a href="grid-list.html" className="menu-banner-title"><span>Featured product</span></a>
                                                                 </li>
                                                             </ul>
                                                         </li>
                                                         <li className="menu-link parent">
-                                                            <a href="javascript:void(0)" className="link-title">
+                                                            <a href="/" className="link-title">
                                                                 <span className="sp-link-title">Pages</span>
                                                                 <i className="fa fa-angle-down" />
                                                             </a>
@@ -244,7 +240,7 @@ const ProductView = () => {
                                                                     <a href="about-us.html" className="submenu-link">About us</a>
                                                                 </li>
                                                                 <li className="submenu-li">
-                                                                    <a href="javascript:void(0)" className="g-l-link"><span>Account</span> <i className="fa fa-angle-right" /></a>
+                                                                    <a href="/" className="g-l-link"><span>Account</span> <i className="fa fa-angle-right" /></a>
                                                                     <a href="#account-menu" data-bs-toggle="collapse" className="sub-link"><span>Account</span> <i className="fa fa-angle-down" /></a>
                                                                     <ul className="collapse blog-style-1" id="account-menu">
                                                                         <li>
@@ -312,7 +308,7 @@ const ProductView = () => {
                                                             </ul>
                                                         </li>
                                                         <li className="menu-link parent">
-                                                            <a href="javascript:void(0)" className="link-title">
+                                                            <a href="/" className="link-title">
                                                                 <span className="sp-link-title">Blogs</span>
                                                                 <i className="fa fa-angle-down" />
                                                             </a>
@@ -322,11 +318,11 @@ const ProductView = () => {
                                                             </a>
                                                             <ul className="dropdown-submenu sub-menu collapse" id="blog-style">
                                                                 <li className="submenu-li">
-                                                                    <a href="javascript:void(0)" className="g-l-link"><span>Blog grid</span> <i className="fa fa-angle-right" /></a>
+                                                                    <a href="/" className="g-l-link"><span>Blog grid</span> <i className="fa fa-angle-right" /></a>
                                                                     <a href="#blog-style03" data-bs-toggle="collapse" className="sub-link"><span>Blog grid</span> <i className="fa fa-angle-down" /></a>
                                                                     <ul className="collapse blog-style-1" id="blog-style03">
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#grid1" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="grid1">
                                                                                 <li><a href="blog-style-1-3-grid.html">Blog 3 grid</a></li>
@@ -335,7 +331,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#grid2" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="grid2">
                                                                                 <li><a href="blog-style-2-3-grid.html">Blog 3 grid</a></li>
@@ -344,7 +340,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#grid3" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="grid3">
                                                                                 <li><a href="blog-style-3-grid.html">Blog 3 grid</a></li>
@@ -353,7 +349,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#grid4" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="grid4">
                                                                                 <li><a href="blog-style-5-3-grid.html">Blog 3 grid</a></li>
@@ -362,7 +358,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#grid5" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="grid5">
                                                                                 <li><a href="blog-style-6-3-grid.html">Blog 3 grid</a></li>
@@ -371,7 +367,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#grid6" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="grid6">
                                                                                 <li><a href="blog-style-7-3-grid.html">Blog 3 grid</a></li>
@@ -382,11 +378,11 @@ const ProductView = () => {
                                                                     </ul>
                                                                 </li>
                                                                 <li className="submenu-li">
-                                                                    <a href="javascript:void(0)" className="g-l-link"><span>Blog list</span> <i className="fa fa-angle-right" /></a>
+                                                                    <a href="/" className="g-l-link"><span>Blog list</span> <i className="fa fa-angle-right" /></a>
                                                                     <a href="#blog-style01" data-bs-toggle="collapse" className="sub-link"><span>Blog list</span> <i className="fa fa-angle-down" /></a>
                                                                     <ul className="collapse blog-style-1" id="blog-style01">
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-1" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-1">
                                                                                 <li><a href="blog-style-1-list.html">Blog list</a></li>
@@ -395,7 +391,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-22" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-22">
                                                                                 <li><a href="blog-style-2-list.html">Blog list</a></li>
@@ -404,7 +400,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-33" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-33">
                                                                                 <li><a href="blog-style-3-list.html">Blog list</a></li>
@@ -413,7 +409,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-44" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-44">
                                                                                 <li><a href="blog-style-5-list-blog.html">Blog list</a></li>
@@ -422,7 +418,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-55" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-55">
                                                                                 <li><a href="blog-style-6-list-blog.html">Blog list</a></li>
@@ -431,7 +427,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-66" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-66">
                                                                                 <li><a href="blog-style-7-list-blog.html">Blog list</a></li>{/*list*/}
@@ -442,11 +438,11 @@ const ProductView = () => {
                                                                     </ul>
                                                                 </li>
                                                                 <li className="submenu-li">
-                                                                    <a href="javascript:void(0)" className="g-l-link"><span>Blog details</span> <i className="fa fa-angle-right" /></a>
+                                                                    <a href="/" className="g-l-link"><span>Blog details</span> <i className="fa fa-angle-right" /></a>
                                                                     <a href="#blog-style02" data-bs-toggle="collapse" className="sub-link"><span>Blog Details</span> <i className="fa fa-angle-down" /></a>
                                                                     <ul className="collapse blog-style-1 ex-width" id="blog-style02">
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog details style 1</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog details style 1</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list-11" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 1</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list-11">
                                                                                 <li><a href="blog-style-1-details.html">Blog details</a></li>
@@ -455,7 +451,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog details style 2</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog details style 2</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list2" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 2</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list2">
                                                                                 <li><a href="blog-style-2-details.html">Blog details</a></li>
@@ -464,7 +460,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/"  className="sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list3" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list3">
                                                                                 <li><a href="blog-style-3-details.html">Blog details</a></li>
@@ -473,7 +469,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog details style 4</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog details style 4</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list4" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 4</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list4">
                                                                                 <li><a href="blog-style-5-details.html">Blog details</a></li>
@@ -482,7 +478,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog details style 5</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog details style 5</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list5" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 5</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list5">
                                                                                 <li><a href="blog-style-6-details.html">Blog details</a></li>
@@ -491,7 +487,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="javascript:void(0)" className="sub-style"><span>Blog details style 6</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog details style 6</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list6" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 6</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list6">
                                                                                 <li><a href="blog-style-7-details.html">Blog details</a></li>
@@ -502,7 +498,7 @@ const ProductView = () => {
                                                                     </ul>
                                                                 </li>
                                                                 <li className="submenu-li">
-                                                                    <a href="javascript:void(0)" className="g-l-link"><span>Center blog</span> <i className="fa fa-angle-right" /></a>
+                                                                    <a href="/" className="g-l-link"><span>Center blog</span> <i className="fa fa-angle-right" /></a>
                                                                     <a href="#center-blog" data-bs-toggle="collapse" className="sub-link"><span>Center blog</span> <i className="fa fa-angle-down" /></a>
                                                                     <ul className="collapse blog-style-1" id="center-blog">
                                                                         <li>
@@ -524,7 +520,7 @@ const ProductView = () => {
                                                             </ul>
                                                         </li>
                                                         <li className="menu-link parent">
-                                                            <a href="javascript:void(0)" className="link-title">
+                                                            <a href="/" className="link-title">
                                                                 <span className="sp-link-title">Feature</span>
                                                                 <i className="fa fa-angle-down" />
                                                             </a>
@@ -599,7 +595,7 @@ const ProductView = () => {
                                                             </ul>
                                                         </li>
                                                         <li className="menu-link">
-                                                            <a href="javascript:void(0)" className="link-title">
+                                                            <a href="/" className="link-title">
                                                                 <span className="sp-link-title">Buy vegist <span className="hot">Hot</span></span>
                                                             </a>
                                                         </li>
@@ -614,7 +610,7 @@ const ProductView = () => {
                     </div>
                 </div>
                 <div className="mini-cart">
-                    <a href="javascript:void(0)" className="shopping-cart-close"><i className="ion-close-round" /></a>
+                    <a href="/" className="shopping-cart-close"><i className="ion-close-round" /></a>
                     <div className="cart-item-title">
                         <p>
                             <span className="cart-count-desc">There are</span>
@@ -725,91 +721,91 @@ const ProductView = () => {
                                 <div className="col-lg-6 col-xl-6 col-md-6 col-12 col-xs-12 larg-image">
                                     <div className="tab-content">
                                         <div className="tab-pane fade show active" id="image-11">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-22">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/prro-page-image01.jpg)' }}>
-                                                    <img src="image/pro-page-image/prro-page-image01.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/prro-page-image01.jpg)' }}>
+                                                    <img src="image/pro-page-image/prro-page-image01.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-33">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1-1.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image1-1.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1-1.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image1-1.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-44">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image1.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image1.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-55">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image2.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image2.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-66">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2-2.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image2-2.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2-2.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image2-2.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-77">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image3.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image3.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image3.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image3.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-88">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <figure className="zoom" onmousemove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image03.jpg)' }}>
-                                                    <img src="image/pro-page-image/pro-page-image03.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image03.jpg)' }}>
+                                                    <img src="image/pro-page-image/pro-page-image03.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                     </div>
                                     <ul className="nav nav-tabs pro-page-slider owl-carousel owl-theme">
                                         <li className="nav-item items">
-                                            <a className="nav-link active" data-bs-toggle="tab" href="#image-11"><img src="image/pro-page-image/image1.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link active" data-bs-toggle="tab" href="#image-11"><img src="image/pro-page-image/image1.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
                                             <a className="nav-link" data-bs-toggle="tab" href="#image-22"><img src="image/pro-page-image/image2.jpg" className="img-fluid" alt="iamge" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-33"><img src="image/pro-page-image/image3.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-33"><img src="image/pro-page-image/image3.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-44"><img src="image/pro-page-image/image4.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-44"><img src="image/pro-page-image/image4.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-55"><img src="image/pro-page-image/image5.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-55"><img src="image/pro-page-image/image5.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-66"><img src="image/pro-page-image/image6.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-66"><img src="image/pro-page-image/image6.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-77"><img src="image/pro-page-image/image8.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-77"><img src="image/pro-page-image/image8.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-88"><img src="image/pro-page-image/image7.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-88"><img src="image/pro-page-image/image7.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                     </ul>
                                 </div>
                                 <div className="col-lg-6 col-xl-6 col-md-6 col-12 col-xs-12 pro-info">
-                                    <h4>Fresh green orange</h4>
+                                    <h4>{product.name}</h4>
                                     <div className="rating">
                                         <i className="fa fa-star d-star" />
                                         <i className="fa fa-star d-star" />
@@ -819,40 +815,53 @@ const ProductView = () => {
                                     </div>
                                     <div className="pro-availabale">
                                         <span className="available">Availability:</span>
-                                        <span className="pro-instock">In stock</span>
+                                        {
+                                            product.availability === "Y" ? (<span className="pro-instock">In stock</span>) :
+                                                (<span className="pro-instock">In stock</span>)
+                                        }
                                     </div>
                                     <div className="pro-price">
-                                        <span className="new-price">$180.00 CAD</span>
-                                        <span className="old-price"><del>$200.00 CAD</del></span>
+                                        <span className="new-price">${product.price}</span>
+                                        <span className="old-price"><del>${product.price}</del></span>
                                         <div className="Pro-lable">
                                             <span className="p-discount">-8%</span>
                                         </div>
                                     </div>
                                     <span className="pro-details">Hurry up! only <span className="pro-number">7</span> products left in stock!</span>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and</p>
+                                    <p>{product.short_description}</p>
                                     <div className="pro-items">
                                         <span className="pro-size">Size:</span>
                                         <ul className="pro-wight">
-                                            <li><a href="javascript:void(0)" className="active">5KG</a></li>
-                                            <li><a href="javascript:void(0)">2KG</a></li>
-                                            <li><a href="javascript:void(0)">3KG</a></li>
+                                            {/* {
+                                                product.size_color.map((item,index) => (
+                                                    <li key={index}>
+                                                        
+                                                    </li>
+                                                ))
+                                            } */}
+                                            {/* <li><a href="/" className="active">5KG</a></li>
+                                            <li><a href="/">2KG</a></li>
+                                            <li><a href="/">3KG</a></li> */}
                                         </ul>
                                     </div>
                                     <div className="product-color">
                                         <span className="color-label">Color:</span>
                                         <span className="color">
-                                            <a href="javascript:void(0)" className="active"><span /></a>
-                                            <a href="javascript:void(0)"><span /></a>
-                                            <a href="javascript:void(0)"><span /></a>
+                                            {
+                                                
+                                            }
+                                            {/* <a href="/" className="active"><span /></a>
+                                            <a href="/"><span /></a>
+                                            <a href="/"><span /></a> */}
                                         </span>
                                     </div>
                                     <div className="pro-qty">
                                         <span className="qty">Quantity:</span>
                                         <div className="plus-minus">
                                             <span>
-                                                <a href="javascript:void(0)" className="minus-btn text-black">-</a>
+                                                <a href="/" className="minus-btn text-black">-</a>
                                                 <input type="text" name="name" defaultValue={1} />
-                                                <a href="javascript:void(0)" className="plus-btn text-black">+</a>
+                                                <a href="/" className="plus-btn text-black">+</a>
                                             </span>
                                         </div>
                                     </div>
@@ -864,10 +873,10 @@ const ProductView = () => {
                                     <div className="share">
                                         <span className="share-lable">Share:</span>
                                         <ul className="share-icn">
-                                            <li><a href="javascript:void(0)"><i className="fa fa-facebook" /></a></li>
-                                            <li><a href="javascript:void(0)"><i className="fa fa-twitter" /></a></li>
-                                            <li><a href="javascript:void(0)"><i className="fa fa-instagram" /></a></li>
-                                            <li><a href="javascript:void(0)"><i className="fa fa-pinterest" /></a></li>
+                                            <li><a href="/"><i className="fa fa-facebook" /></a></li>
+                                            <li><a href="/"><i className="fa fa-twitter" /></a></li>
+                                            <li><a href="/"><i className="fa fa-instagram" /></a></li>
+                                            <li><a href="/"><i className="fa fa-pinterest" /></a></li>
                                         </ul>
                                     </div>
                                     <div className="pay-img">
@@ -905,12 +914,13 @@ const ProductView = () => {
                                         <div className="tab-1content">
                                             <h4>More details</h4>
                                             <ul className="tab-description">
-                                                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                                                <li>{product.description}</li>
+                                                {/* <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
                                                 <li>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</li>
                                                 <li>type here your detail one by one li more add</li>
                                                 <li>has been the industry’s standard dummy text ever since. Lorem Ips</li>
                                                 <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                                                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li>
+                                                <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li> */}
                                             </ul>
                                         </div>
                                         <div className="tab-2content">
@@ -1467,39 +1477,14 @@ const ProductView = () => {
                             <div className="section-title">
                                 <h2>Related Products</h2>
                             </div>
-                            <div className="releted-products owl-carousel owl-theme">
-                                <div className="items">
-                                    <div className="tred-pro">
-                                        <div className="tr-pro-img">
-                                            <a href="product.html">
-                                                <img className="img-fluid" src="image/pro/pro-img-1.jpg" alt="pro-img1" />
-                                                <img className="img-fluid additional-image" src="image/pro/pro-img-01.jpg" alt="additional image" />
-                                            </a>
-                                        </div>
-                                        <div className="Pro-lable">
-                                            <span className="p-text">New</span>
-                                        </div>
-                                        <div className="pro-icn">
-                                            <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
-                                            <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
-                                        </div>
-                                    </div>
-                                    <div className="caption">
-                                        <h3><a href="product.html">Fresh organic fruit (50gm)</a></h3>
-                                        <div className="rating">
-                                            <i className="fa fa-star c-star" />
-                                            <i className="fa fa-star c-star" />
-                                            <i className="fa fa-star c-star" />
-                                            <i className="fa fa-star-o" />
-                                            <i className="fa fa-star-o" />
-                                        </div>
-                                        <div className="pro-price">
-                                            <span className="new-price">$130.00 USD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="items">
+
+                            {/* <div className="releted-products owl-carousel owl-theme"> */}
+                            <div className="" style={{ flexDirection:'row'}}>
+                                {
+                                    // product.related_products.map((item,index) => (<ProductviewRelatedItem id={item}/>))
+                                    product.related_products.map((item,index) => (<div><h1>{item}</h1></div>))
+                                }
+                                {/* <div className="items">
                                     <div className="tred-pro">
                                         <div className="tr-pro-img">
                                             <a href="product.html">
@@ -1513,7 +1498,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1544,7 +1529,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1576,7 +1561,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1607,7 +1592,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1639,7 +1624,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1671,7 +1656,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1703,7 +1688,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1734,7 +1719,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1766,7 +1751,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1797,7 +1782,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1828,7 +1813,7 @@ const ProductView = () => {
                                         <div className="pro-icn">
                                             <a href="wishlist.html" className="w-c-q-icn"><i className="fa fa-heart" /></a>
                                             <a href="cart.html" className="w-c-q-icn"><i className="fa fa-shopping-bag" /></a>
-                                            <a href="javascript:void(0)" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
+                                            <a href="/" className="w-c-q-icn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i className="fa fa-eye" /></a>
                                         </div>
                                     </div>
                                     <div className="caption">
@@ -1845,7 +1830,7 @@ const ProductView = () => {
                                             <span className="old-price"><del>$270.00 USD</del></span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -1857,76 +1842,76 @@ const ProductView = () => {
                         <div className="modal-content">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="exampleModalLabel">Product quickview</h5>
-                                <a href="javascript:void(0)" data-bs-dismiss="modal" aria-label="Close"><i className="ion-close-round" /></a>
+                                <a href="/" data-bs-dismiss="modal" aria-label="Close"><i className="ion-close-round" /></a>
                             </div>
                             <div className="quick-veiw-area">
                                 <div className="quick-image">
                                     <div className="tab-content">
                                         <div className="tab-pane fade show active" id="image-1">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-2">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/prro-page-image01.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/prro-page-image01.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-3">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image1-1.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image1-1.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-4">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image1.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image1.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-5">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image2.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image2.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-6">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image2-2.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image2-2.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-7">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image3.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image3.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                         <div className="tab-pane fade show" id="image-8">
-                                            <a href="javascript:void(0)" className="long-img">
-                                                <img src="image/pro-page-image/pro-page-image03.jpg" className="img-fluid" alt="image" />
+                                            <a href="/" className="long-img">
+                                                <img src="image/pro-page-image/pro-page-image03.jpg" className="img-fluid" alt="" />
                                             </a>
                                         </div>
                                     </div>
                                     <ul className="nav nav-tabs quick-slider owl-carousel owl-theme">
                                         <li className="nav-item items">
-                                            <a className="nav-link active" data-bs-toggle="tab" href="#image-1"><img src="image/pro-page-image/image1.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link active" data-bs-toggle="tab" href="#image-1"><img src="image/pro-page-image/image1.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
                                             <a className="nav-link" data-bs-toggle="tab" href="#image-2"><img src="image/pro-page-image/image2.jpg" className="img-fluid" alt="iamge" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-3"><img src="image/pro-page-image/image3.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-3"><img src="image/pro-page-image/image3.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-4"><img src="image/pro-page-image/image4.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-4"><img src="image/pro-page-image/image4.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-5"><img src="image/pro-page-image/image5.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-5"><img src="image/pro-page-image/image5.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-6"><img src="image/pro-page-image/image6.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-6"><img src="image/pro-page-image/image6.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-7"><img src="image/pro-page-image/image8.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-7"><img src="image/pro-page-image/image8.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                         <li className="nav-item items">
-                                            <a className="nav-link" data-bs-toggle="tab" href="#image-8"><img src="image/pro-page-image/image7.jpg" className="img-fluid" alt="image" /></a>
+                                            <a className="nav-link" data-bs-toggle="tab" href="#image-8"><img src="image/pro-page-image/image7.jpg" className="img-fluid" alt="" /></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1956,9 +1941,9 @@ const ProductView = () => {
                                     </div>
                                     <div className="plus-minus">
                                         <span>
-                                            <a href="javascript:void(0)" className="minus-btn text-black">-</a>
+                                            <a href="/" className="minus-btn text-black">-</a>
                                             <input type="text" name="name" defaultValue={1} />
-                                            <a href="javascript:void(0)" className="plus-btn text-black">+</a>
+                                            <a href="/" className="plus-btn text-black">+</a>
                                         </span>
                                         <a href="cart.html" className="quick-cart"><i className="fa fa-shopping-bag" /></a>
                                         <a href="wishlist.html" className="quick-wishlist"><i className="fa fa-heart" /></a>
@@ -1969,7 +1954,7 @@ const ProductView = () => {
                     </div>
                 </div>
             </section>
-            <a href="javascript:void(0)" className="scroll" id="top">
+            <a href="/" className="scroll" id="top">
                 <span><i className="fa fa-angle-double-up" /></span>
             </a>
             <div className="mm-fullscreen-bg" />

@@ -1,17 +1,12 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
-import classNames from "classnames";
 import {
   CartStateContext,
-  CartDispatchContext,
-  removeFromCart,
-  toggleCartPopup
 } from "../contexts/cart";
 
 import { ProductsStateContext } from '../contexts/products';
 
 const CartPreview = () => {
-  const { items, isCartOpen } = useContext(CartStateContext);
+  const { items } = useContext(CartStateContext);
   //const dispatch = useContext(CartDispatchContext);
   const { products, itemGroups } = useContext(ProductsStateContext);
   //const history = useHistory();
@@ -19,7 +14,7 @@ const CartPreview = () => {
   if (products === null || itemGroups === null) {
     return (
       <div className="mini-cart">
-        <a href="javascript:void(0)" className="shopping-cart-close"><i className="ion-close-round" /></a>
+        <a href="/" className="shopping-cart-close"><i className="ion-close-round" /></a>
         <div className="cart-item-title">
           <p>
             <span className="cart-count-desc">There are</span>
@@ -54,7 +49,7 @@ const CartPreview = () => {
 
   // const handleProceedCheckout = () => {
   //   toggleCartPopup(dispatch);
-  //   history.push("/checkout");
+    // history.push("/checkout");
   // };
 
 
@@ -102,13 +97,14 @@ const CartPreview = () => {
 
     items.map((x) => {
       SubTotal = SubTotal + (x.price * x.quantity);
+      return x;
     });
     return '₹' + SubTotal;
   }
 
   return (
     <div className="mini-cart">
-      <a href="javascript:void(0)" className="shopping-cart-close"><i className="ion-close-round" /></a>
+      <a href="/" className="shopping-cart-close"><i className="ion-close-round" /></a>
       <div className="cart-item-title">
         <p>
           <span className="cart-count-desc">There are</span>
@@ -118,8 +114,7 @@ const CartPreview = () => {
       </div>
       <ul className="cart-item-loop">
         {items.map((product) => {
-          var item1 = itemGroups?.find(x => x.item_id === product.item_id);
-          
+
           return <li className="cart-item">
             <div className="cart-img">
               <a href="product.html">

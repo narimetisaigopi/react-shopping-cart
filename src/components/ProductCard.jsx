@@ -2,9 +2,10 @@ import React, { useState, useContext } from "react";
 import { CartDispatchContext, CartStateContext, addToCart, removeToCart, removeFromCart } from "../contexts/cart";
 import { ProductsStateContext } from "../contexts/products";
 import Counter from "./Counter";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const ProductCard = ({ data }) => {
-  const [SelectedItem, SetSelectedItem] = useState(0);
+  const [, SetSelectedItem] = useState(0);
   //let SelectedItem = 1;
 
   let selectItems = [];
@@ -17,9 +18,10 @@ const ProductCard = ({ data }) => {
     if (x.quantity === 0) {
       removeFromCart(dispatch, x.id)
     }
+    return x;
   });
 
-  const { itemGroups, products } = useContext(ProductsStateContext);
+  const { itemGroups } = useContext(ProductsStateContext);
 
   const [quantity, setQuantity] = useState(items.filter(x => x.id === data.id)[0]?.quantity);
 
@@ -37,7 +39,7 @@ const ProductCard = ({ data }) => {
     return items.find(x => x.id === data.id);
   }
 
-  const { image, name, price, id, stock } = data;
+  const { image, name, price } = data;
 
   const handleAddToCart = () => {
     const product = { ...data, quantity: 1 };
@@ -61,28 +63,30 @@ const ProductCard = ({ data }) => {
   const changeCounter = (params) => {
     displayCounter = false;
   }
-  let type = ' items'
-  if (data.quantity_type.name === 'kg') {
-    type = ' kg'
-  }
+  //let type = ' items'
+  // if (data.quantity_type.name === 'kg') {
+  //   type = ' kg'
+  // }
 
   var item = GetCartItem();
-  let single = data.quantity + type;
 
   console.log('Called');
 
   return (
     <div className="product">
+      <Link to={`/product/${data.id}`}>
+      
       <div className="product-image">
         <img src={image[0].url} alt={name} />
       </div>
+      </Link>
       <h4 className="product-name">{name}</h4>
       {/* <h4 className="product-quantity">{item !== undefined ? ' ‏‏‎ ' : single}</h4> */}
       <div className='product-dropdown'>
-        {selectItems.length != 0 && (
+        {selectItems.length !== 0 && (
           <select onChange={(x) => { SetSelectedItem(x.target.options.selectedIndex) }} className="form-select product-dropdown-select" aria-label="Default select example">
             {
-              selectItems.map(x => <option>{x}</option>)
+              selectItems.map(x => <option key={x} >{x}</option>)
             }
           </select>
         )

@@ -11,7 +11,7 @@ const HeaderCartCount = () => {
         <li style={{ cursor: 'pointer' }} className="side-wrap cart-wrap">
             <div className="shopping-widget">
                 <div className="shopping-cart">
-                    <a className="cart-count">
+                    <a href="/" className="cart-count">
                         <span className="cart-icon-wrap">
                             <span className="cart-icon"><i className="icon-handbag" /></span>
                             <span id="cart-total" className="bigcounter">{items.length}</span>

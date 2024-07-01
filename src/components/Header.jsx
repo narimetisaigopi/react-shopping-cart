@@ -225,7 +225,7 @@ const Header = (props) => {
                             </ul>
                           </li>
                           <li className="menu-link parent">
-                            <a href="javascript:void(0)" className="link-title">
+                            <a href="/" className="link-title">
                               <span className="sp-link-title">Shop</span>
                               <i className="fa fa-angle-down" />
                             </a>
@@ -315,13 +315,13 @@ const Header = (props) => {
                                 <a href="grid-list.html" className="menu-banner-title"><span>Special product</span></a>
                               </li>
                               <li className="menu-banner">
-                                <a href="grid-list.html" className="menu-banner-img"><img src="image/menu-banner03.jpg" alt="mneu image" className="img-fluid" /></a>
+                                <a href="grid-list.html" className="menu-banner-img"><img src="image/menu-banner03.jpg" alt="mneu" className="img-fluid" /></a>
                                 <a href="grid-list.html" className="menu-banner-title"><span>Featured product</span></a>
                               </li>
                             </ul>
                           </li>
                           <li className="menu-link parent">
-                            <a href="javascript:void(0)" className="link-title">
+                            <a href="/" className="link-title">
                               <span className="sp-link-title">Pages</span>
                               <i className="fa fa-angle-down" />
                             </a>
@@ -334,7 +334,7 @@ const Header = (props) => {
                                 <a href="about-us.html" className="submenu-link">About us</a>
                               </li>
                               <li className="submenu-li">
-                                <a href="javascript:void(0)" className="g-l-link"><span>Account</span> <i className="fa fa-angle-right" /></a>
+                                <a href="/" className="g-l-link"><span>Account</span> <i className="fa fa-angle-right" /></a>
                                 <a href="#account-menu" data-bs-toggle="collapse" className="sub-link"><span>Account</span> <i className="fa fa-angle-down" /></a>
                                 <ul className="collapse blog-style-1" id="account-menu">
                                   <li>
@@ -402,7 +402,7 @@ const Header = (props) => {
                             </ul>
                           </li>
                           <li className="menu-link parent">
-                            <a href="javascript:void(0)" className="link-title">
+                            <a href="/" className="link-title">
                               <span className="sp-link-title">Blogs</span>
                               <i className="fa fa-angle-down" />
                             </a>
@@ -412,11 +412,11 @@ const Header = (props) => {
                             </a>
                             <ul className="dropdown-submenu sub-menu collapse" id="blog-style">
                               <li className="submenu-li">
-                                <a href="javascript:void(0)" className="g-l-link"><span>Blog grid</span> <i className="fa fa-angle-right" /></a>
+                                <a href="/" className="g-l-link"><span>Blog grid</span> <i className="fa fa-angle-right" /></a>
                                 <a href="#blog-style03" data-bs-toggle="collapse" className="sub-link"><span>Blog grid</span> <i className="fa fa-angle-down" /></a>
                                 <ul className="collapse blog-style-1" id="blog-style03">
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                     <a href="#grid1" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="grid1">
                                       <li><a href="blog-style-1-3-grid.html">Blog 3 grid</a></li>
@@ -425,7 +425,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                     <a href="#grid2" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="grid2">
                                       <li><a href="blog-style-2-3-grid.html">Blog 3 grid</a></li>
@@ -434,7 +434,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                     <a href="#grid3" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="grid3">
                                       <li><a href="blog-style-3-grid.html">Blog 3 grid</a></li>
@@ -443,7 +443,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                     <a href="#grid4" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="grid4">
                                       <li><a href="blog-style-5-3-grid.html">Blog 3 grid</a></li>
@@ -452,7 +452,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                     <a href="#grid5" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="grid5">
                                       <li><a href="blog-style-6-3-grid.html">Blog 3 grid</a></li>
@@ -461,7 +461,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                     <a href="#grid6" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="grid6">
                                       <li><a href="blog-style-7-3-grid.html">Blog 3 grid</a></li>
@@ -472,11 +472,11 @@ const Header = (props) => {
                                 </ul>
                               </li>
                               <li className="submenu-li">
-                                <a href="javascript:void(0)" className="g-l-link"><span>Blog list</span> <i className="fa fa-angle-right" /></a>
+                                <a href="/" className="g-l-link"><span>Blog list</span> <i className="fa fa-angle-right" /></a>
                                 <a href="#blog-style01" data-bs-toggle="collapse" className="sub-link"><span>Blog list</span> <i className="fa fa-angle-down" /></a>
                                 <ul className="collapse blog-style-1" id="blog-style01">
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-1" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 1</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-1">
                                       <li><a href="blog-style-1-list.html">Blog list</a></li>
@@ -485,7 +485,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-22" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 2</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-22">
                                       <li><a href="blog-style-2-list.html">Blog list</a></li>
@@ -494,7 +494,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-33" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 3</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-33">
                                       <li><a href="blog-style-3-list.html">Blog list</a></li>
@@ -503,7 +503,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-44" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 4</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-44">
                                       <li><a href="blog-style-5-list-blog.html">Blog list</a></li>
@@ -512,7 +512,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-55" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 5</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-55">
                                       <li><a href="blog-style-6-list-blog.html">Blog list</a></li>
@@ -521,7 +521,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-66" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog style 6</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-66">
                                       <li><a href="blog-style-7-list-blog.html">Blog list</a></li>{/*list*/}
@@ -532,11 +532,11 @@ const Header = (props) => {
                                 </ul>
                               </li>
                               <li className="submenu-li">
-                                <a href="javascript:void(0)" className="g-l-link"><span>Blog details</span> <i className="fa fa-angle-right" /></a>
+                                <a href="/" className="g-l-link"><span>Blog details</span> <i className="fa fa-angle-right" /></a>
                                 <a href="#blog-style02" data-bs-toggle="collapse" className="sub-link"><span>Blog Details</span> <i className="fa fa-angle-down" /></a>
                                 <ul className="collapse blog-style-1 ex-width" id="blog-style02">
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog details style 1</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog details style 1</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list-11" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 1</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list-11">
                                       <li><a href="blog-style-1-details.html">Blog details</a></li>
@@ -545,7 +545,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog details style 2</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog details style 2</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list2" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 2</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list2">
                                       <li><a href="blog-style-2-details.html">Blog details</a></li>
@@ -554,7 +554,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list3" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list3">
                                       <li><a href="blog-style-3-details.html">Blog details</a></li>
@@ -563,7 +563,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog details style 4</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog details style 4</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list4" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 4</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list4">
                                       <li><a href="blog-style-5-details.html">Blog details</a></li>
@@ -572,7 +572,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog details style 5</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog details style 5</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list5" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 5</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list5">
                                       <li><a href="blog-style-6-details.html">Blog details</a></li>
@@ -581,7 +581,7 @@ const Header = (props) => {
                                     </ul>
                                   </li>
                                   <li>
-                                    <a href="javascript:void(0)" className="sub-style"><span>Blog details style 6</span><i className="fa fa-angle-right" /></a>
+                                    <a href="/" className="sub-style"><span>Blog details style 6</span><i className="fa fa-angle-right" /></a>
                                     <a href="#list6" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 6</span><i className="fa fa-angle-right" /></a>
                                     <ul className="grid-style collapse" id="list6">
                                       <li><a href="blog-style-7-details.html">Blog details</a></li>
@@ -592,7 +592,7 @@ const Header = (props) => {
                                 </ul>
                               </li>
                               <li className="submenu-li">
-                                <a href="javascript:void(0)" className="g-l-link"><span>Center blog</span> <i className="fa fa-angle-right" /></a>
+                                <a href="/" className="g-l-link"><span>Center blog</span> <i className="fa fa-angle-right" /></a>
                                 <a href="#center-blog" data-bs-toggle="collapse" className="sub-link"><span>Center blog</span> <i className="fa fa-angle-down" /></a>
                                 <ul className="collapse blog-style-1" id="center-blog">
                                   <li>
@@ -614,7 +614,7 @@ const Header = (props) => {
                             </ul>
                           </li>
                           <li className="menu-link parent">
-                            <a href="javascript:void(0)" className="link-title">
+                            <a href="/" className="link-title">
                               <span className="sp-link-title">Feature</span>
                               <i className="fa fa-angle-down" />
                             </a>
@@ -689,7 +689,7 @@ const Header = (props) => {
                             </ul>
                           </li>
                           <li className="menu-link">
-                            <a href="javascript:void(0)" className="link-title">
+                            <a href="/" className="link-title">
                               <span className="sp-link-title">Buy vegist <span className="hot">Hot</span></span>
                             </a>
                           </li>

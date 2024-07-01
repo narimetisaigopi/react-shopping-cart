@@ -6,21 +6,21 @@ const Footer = () => {
     <footer>
       <p className="footer-links">
         <a
-          href=""
+          href="/"
           target="_blank"
         >
           View 
         </a>
         <span> / </span>
-        <a href="" target="_blank">
+        <a href="/" target="_blank">
           Need any help?
         </a>
         <span> / </span>
-        <a href="" target="_blank">
+        <a href="/" target="_blank">
           Say Hi on Twitter
         </a>
         <span> / </span>
-        <a href="" target="_blank">
+        <a href="/" target="_blank">
           Read My Blog
         </a>
       </p>

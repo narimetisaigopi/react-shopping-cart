@@ -33,7 +33,6 @@ class CategoryList extends Component {
                 <button className={this.props.category === 'vegetable' ? "item active" : "item"} onClick={this.handleVegetableClick}>Vegetables</button>
                 <button className={this.props.category === 'fruit' ? "item active" : "item"} onClick={this.handleFruitClick}>Fruits</button>
                 <button className={this.props.category === 'nuts' ? "item active" : "item"} onClick={this.handleNutsClick}>Nuts</button>
-
             </div>
         );
 
