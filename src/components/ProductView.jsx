@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { ProductsStateContext } from "../contexts/products";
 import { useParams } from 'react-router-dom';
+import ProductSizeChart from './ProductSizeChart';
 
 const ProductView = () => {
     const { products } = useContext(ProductsStateContext);
     const { id } = useParams();
     const product = products.find(p => p.id.toString() === id);
+
+    const zoomHandler = (e) => {
+    }
 
     console.log(`ProductView ${JSON.stringify(product)}`);
     return (
@@ -460,7 +464,7 @@ const ProductView = () => {
                                                                             </ul>
                                                                         </li>
                                                                         <li>
-                                                                            <a href="/"  className="sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
+                                                                            <a href="/" className="sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <a href="#list3" data-bs-toggle="collapse" className="blog-sub-style"><span>Blog details style 3</span><i className="fa fa-angle-right" /></a>
                                                                             <ul className="grid-style collapse" id="list3">
                                                                                 <li><a href="blog-style-3-details.html">Blog details</a></li>
@@ -722,56 +726,56 @@ const ProductView = () => {
                                     <div className="tab-content">
                                         <div className="tab-pane fade show active" id="image-11">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-22">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/prro-page-image01.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/prro-page-image01.jpg)' }}>
                                                     <img src="image/pro-page-image/prro-page-image01.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-33">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1-1.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1-1.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image1-1.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-44">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image1.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image1.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-55">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image2.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-66">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2-2.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image2-2.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image2-2.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-77">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image3.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image3.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image3.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
                                         </div>
                                         <div className="tab-pane fade" id="image-88">
                                             <a href="/" className="long-img">
-                                                <figure className="zoom" onMouseMove="zoom(event)" style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image03.jpg)' }}>
+                                                <figure className="zoom" onMouseMove={zoomHandler} style={{ backgroundImage: 'url(image/pro-page-image/pro-page-image03.jpg)' }}>
                                                     <img src="image/pro-page-image/pro-page-image03.jpg" className="img-fluid" alt="" />
                                                 </figure>
                                             </a>
@@ -807,12 +811,17 @@ const ProductView = () => {
                                 <div className="col-lg-6 col-xl-6 col-md-6 col-12 col-xs-12 pro-info">
                                     <h4>{product.name}</h4>
                                     <div className="rating">
-                                        <i className="fa fa-star d-star" />
-                                        <i className="fa fa-star d-star" />
-                                        <i className="fa fa-star d-star" />
-                                        <i className="fa fa-star d-star" />
-                                        <i className="fa fa-star-o" />
+                                        {[...Array(5)].map((star, index) => {
+                                            if (index < Math.floor(product.rating)) {
+                                                return <i key={index} className="fa fa-star d-star" />;
+                                            } else if (index === Math.floor(product.rating) && product.rating % 1 !== 0) {
+                                                return <i key={index} className="fa fa-star-half-o d-star" />;
+                                            } else {
+                                                return <i key={index} className="fa fa-star-o d-star" />;
+                                            }
+                                        })}
                                     </div>
+                                    <p>{product.num_of_ratings} ratings</p>
                                     <div className="pro-availabale">
                                         <span className="available">Availability:</span>
                                         {
@@ -829,32 +838,33 @@ const ProductView = () => {
                                     </div>
                                     <span className="pro-details">Hurry up! only <span className="pro-number">7</span> products left in stock!</span>
                                     <p>{product.short_description}</p>
-                                    <div className="pro-items">
+                                    {product.sizes && <div className="pro-items">
                                         <span className="pro-size">Size:</span>
                                         <ul className="pro-wight">
-                                            {/* {
-                                                product.size_color.map((item,index) => (
-                                                    <li key={index}>
-                                                        
+                                            {
+                                                product.sizes && product.sizes.map((item, index) => (
+                                                    <li key={index} className="active">
+                                                        <a href="/">{item}</a>
                                                     </li>
                                                 ))
-                                            } */}
-                                            {/* <li><a href="/" className="active">5KG</a></li>
-                                            <li><a href="/">2KG</a></li>
-                                            <li><a href="/">3KG</a></li> */}
-                                        </ul>
-                                    </div>
-                                    <div className="product-color">
-                                        <span className="color-label">Color:</span>
-                                        <span className="color">
-                                            {
-                                                
                                             }
-                                            {/* <a href="/" className="active"><span /></a>
-                                            <a href="/"><span /></a>
-                                            <a href="/"><span /></a> */}
-                                        </span>
-                                    </div>
+                                        </ul>
+                                    </div>}
+                                    {
+                                        product.size_color && <div className="product-color">
+                                            <span className="color-label">Color:</span>
+                                            <span className="color">
+                                                {
+                                                    product.size_color && product.size_color.map((item, index) => (
+                                                        <li key={index} className="active">
+                                                            <a href="/"> <div className="color-circle" style={{ backgroundColor: item.color }}></div></a>
+                                                        </li>
+                                                    ))
+                                                }
+                                            </span>
+                                        </div>
+                                    }
+
                                     <div className="pro-qty">
                                         <span className="qty">Quantity:</span>
                                         <div className="plus-minus">
@@ -996,472 +1006,17 @@ const ProductView = () => {
                                         </div>
                                     </div>
                                     <div className="tab-pane fade show" id="tab-3">
-                                        <div className="embed-responsive embed-responsive-16by9">
-                                            <iframe height={630} src="https://www.youtube.com/embed/0etCKCAsImI" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                                        </div>
+                                        {
+                                            product.videos ? <div className="embed-responsive embed-responsive-16by9">
+                                                <iframe height={630} src={`https://www.youtube.com/embed/${product.videos.split('v=')[1].split('&')[0]}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                                            </div> : (
+                                                <h1>No Video</h1>
+                                            )
+                                        }
                                     </div>
                                     <div className="tab-pane fade show" id="tab-5">
                                         <div className="more-description table-responsive">
-                                            <table className="table table-bordered table-elastic table-condensed" style={{ fontSize: '9px' }}>
-                                                <thead>
-                                                    <tr className="top">
-                                                        <th rowSpan={2} scope="col">Vegetables<br /> Serving Size<br /> (gram weight/<br /> ounce weight)</th>
-                                                        <th rowSpan={2} scope="col">Calories</th>
-                                                        <th rowSpan={2} scope="col">Calories<br /> from Fat</th>
-                                                        <th colSpan={2} scope="col">Total Fat</th>
-                                                        <th colSpan={2} scope="col">Sodium</th>
-                                                        <th colSpan={2} scope="col">Potassium</th>
-                                                        <th colSpan={2} scope="col">Total<br /> Carbo-hydrate</th>
-                                                        <th colSpan={2} scope="col">Dietary<br /> Fiber</th>
-                                                        <th scope="col">Sugars</th>
-                                                        <th scope="col">Protein</th>
-                                                        <th scope="col">Vitamin A</th>
-                                                        <th scope="col">Vitamin C</th>
-                                                        <th scope="col">Calcium</th>
-                                                        <th scope="col">Iron</th>
-                                                    </tr>
-                                                    <tr className="text-center" style={{ fontSize: '90%' }}>
-                                                        <th scope="col">(g)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(mg)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(mg)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(g)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(g)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(g)</th>
-                                                        <th scope="col">(g)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                        <th scope="col">(%DV)</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Asparagus<br /> 5 spears<br /> (93 g/3.3 oz)</th>
-                                                        <td>20</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>230</td>
-                                                        <td>7</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>10</td>
-                                                        <td>15</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Bell Pepper<br /> 1 medium<br /> (148 g/5.3 oz)</th>
-                                                        <td>25</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>40</td>
-                                                        <td>2</td>
-                                                        <td>220</td>
-                                                        <td>6</td>
-                                                        <td>6</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>190</td>
-                                                        <td>2</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Broccoli<br /> 1 medium stalk<br /> (148 g/5.3 oz)</th>
-                                                        <td>45</td>
-                                                        <td>0</td>
-                                                        <td>0.5</td>
-                                                        <td>1</td>
-                                                        <td>80</td>
-                                                        <td>3</td>
-                                                        <td>460</td>
-                                                        <td>13</td>
-                                                        <td>8</td>
-                                                        <td>3</td>
-                                                        <td>3</td>
-                                                        <td>12</td>
-                                                        <td>2</td>
-                                                        <td>4</td>
-                                                        <td>6</td>
-                                                        <td>220</td>
-                                                        <td>6</td>
-                                                        <td>6</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Carrot<br /> 1 carrot, 7" long,<br /> 1 1/4" diameter<br /> (78 g/2.8 oz)</th>
-                                                        <td>30</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>60</td>
-                                                        <td>3</td>
-                                                        <td>250</td>
-                                                        <td>7</td>
-                                                        <td>7</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>5</td>
-                                                        <td>1</td>
-                                                        <td>110</td>
-                                                        <td>10</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Cauliflower<br /> 1/6 medium head<br /> (99 g/3.5 oz)</th>
-                                                        <td>25</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>30</td>
-                                                        <td>1</td>
-                                                        <td>270</td>
-                                                        <td>8</td>
-                                                        <td>5</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>0</td>
-                                                        <td>100</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Celery<br /> 2 medium stalks<br /> (110 g/3.9 oz)</th>
-                                                        <td>15</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>115</td>
-                                                        <td>5</td>
-                                                        <td>260</td>
-                                                        <td>7</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>2</td>
-                                                        <td>0</td>
-                                                        <td>10</td>
-                                                        <td>15</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Cucumber<br /> 1/3 medium<br /> (99 g/3.5 oz)</th>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>140</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>10</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Green (Snap) Beans<br /> 3/4 cup cut<br /> (83 g/3.0 oz)</th>
-                                                        <td>20</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>200</td>
-                                                        <td>6</td>
-                                                        <td>5</td>
-                                                        <td>2</td>
-                                                        <td>3</td>
-                                                        <td>12</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>10</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Green&nbsp;Cabbage<br /> 1/12 medium head<br /> (84 g/3.0 oz)</th>
-                                                        <td>25</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>20</td>
-                                                        <td>1</td>
-                                                        <td>190</td>
-                                                        <td>5</td>
-                                                        <td>5</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>3</td>
-                                                        <td>1</td>
-                                                        <td>0</td>
-                                                        <td>70</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Green Onion<br /> 1/4 cup chopped<br /> (25 g/0.9 oz)</th>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>70</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>0</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Iceberg Lettuce<br /> 1/6 medium head<br /> (89 g/3.2 oz)</th>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>125</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>6</td>
-                                                        <td>6</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Leaf Lettuce<br /> 1 1/2 cups shredded<br /> (85 g/3.0 oz)</th>
-                                                        <td>15</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>35</td>
-                                                        <td>1</td>
-                                                        <td>170</td>
-                                                        <td>5</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>130</td>
-                                                        <td>6</td>
-                                                        <td>2</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Mushrooms<br /> 5 medium<br /> (84 g/3.0 oz)</th>
-                                                        <td>20</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>15</td>
-                                                        <td>0</td>
-                                                        <td>300</td>
-                                                        <td>9</td>
-                                                        <td>3</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>0</td>
-                                                        <td>3</td>
-                                                        <td>0</td>
-                                                        <td>2</td>
-                                                        <td>0</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Onion<br /> 1 medium<br /> (148 g/5.3 oz)</th>
-                                                        <td>45</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>5</td>
-                                                        <td>0</td>
-                                                        <td>190</td>
-                                                        <td>5</td>
-                                                        <td>11</td>
-                                                        <td>4</td>
-                                                        <td>3</td>
-                                                        <td>12</td>
-                                                        <td>9</td>
-                                                        <td>1</td>
-                                                        <td>0</td>
-                                                        <td>20</td>
-                                                        <td>4</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Potato<br /> 1 medium<br /> (148 g/5.3 oz)</th>
-                                                        <td>110</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>620</td>
-                                                        <td>18</td>
-                                                        <td>26</td>
-                                                        <td>9</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>1</td>
-                                                        <td>3</td>
-                                                        <td>0</td>
-                                                        <td>45</td>
-                                                        <td>2</td>
-                                                        <td>6</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Radishes<br /> 7 radishes<br /> (85 g/3.0 oz)</th>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>55</td>
-                                                        <td>2</td>
-                                                        <td>190</td>
-                                                        <td>5</td>
-                                                        <td>3</td>
-                                                        <td>1</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>30</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Summer Squash<br /> 1/2 medium<br /> (98 g/3.5 oz)</th>
-                                                        <td>20</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>260</td>
-                                                        <td>7</td>
-                                                        <td>4</td>
-                                                        <td>1</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>6</td>
-                                                        <td>30</td>
-                                                        <td>2</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Sweet Corn<br /> kernels from 1<br /> medium ear<br /> (90 g/3.2 oz)</th>
-                                                        <td>90</td>
-                                                        <td>20</td>
-                                                        <td>2.5</td>
-                                                        <td>4</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>250</td>
-                                                        <td>7</td>
-                                                        <td>18</td>
-                                                        <td>6</td>
-                                                        <td>2</td>
-                                                        <td>8</td>
-                                                        <td>5</td>
-                                                        <td>4</td>
-                                                        <td>2</td>
-                                                        <td>10</td>
-                                                        <td>0</td>
-                                                        <td>2</td>
-                                                    </tr>
-                                                    <tr className="alert alert-warning">
-                                                        <th scope="row">Sweet Potato<br /> 1 medium, 5" long,<br /> 2" diameter<br /> (130 g/4.6 oz)</th>
-                                                        <td>100</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>70</td>
-                                                        <td>3</td>
-                                                        <td>440</td>
-                                                        <td>13</td>
-                                                        <td>23</td>
-                                                        <td>8</td>
-                                                        <td>4</td>
-                                                        <td>16</td>
-                                                        <td>7</td>
-                                                        <td>2</td>
-                                                        <td>120</td>
-                                                        <td>30</td>
-                                                        <td>4</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Tomato<br /> 1 medium<br /> (148 g/5.3 oz)</th>
-                                                        <td>25</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>0</td>
-                                                        <td>20</td>
-                                                        <td>1</td>
-                                                        <td>340</td>
-                                                        <td>10</td>
-                                                        <td>5</td>
-                                                        <td>2</td>
-                                                        <td>1</td>
-                                                        <td>4</td>
-                                                        <td>3</td>
-                                                        <td>1</td>
-                                                        <td>20</td>
-                                                        <td>40</td>
-                                                        <td>2</td>
-                                                        <td>4</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <ProductSizeChart />
                                         </div>
                                     </div>
                                 </div>
@@ -1477,12 +1032,11 @@ const ProductView = () => {
                             <div className="section-title">
                                 <h2>Related Products</h2>
                             </div>
-
                             {/* <div className="releted-products owl-carousel owl-theme"> */}
-                            <div className="" style={{ flexDirection:'row'}}>
+                            <div className="" style={{ flexDirection: 'row' }}>
                                 {
                                     // product.related_products.map((item,index) => (<ProductviewRelatedItem id={item}/>))
-                                    product.related_products.map((item,index) => (<div><h1>{item}</h1></div>))
+                                    product.related_products.map((item, index) => (<div><h1>{item}</h1></div>))
                                 }
                                 {/* <div className="items">
                                     <div className="tred-pro">

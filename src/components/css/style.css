@@ -12774,3 +12774,12 @@ a.scroll:hover span{
 .order-histry-area .order-history .profile-tickets .table tbody tr td.delivered {
     color: #43d9a3;
 }
+
+.color-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    border: 1px solid #ccc; /* optional: add a border */
+}
