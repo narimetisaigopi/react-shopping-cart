@@ -1,17 +1,25 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { ProductsStateContext } from "../../contexts/ProductsContext";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
-const ProductviewRelatedItem = (id ) => {
+const ProductviewRelatedItem = ({ id }) => {
   const { products } = useContext(ProductsStateContext);
-  console.log(`ProductviewRelatedItem id: ${JSON.stringify(id)}`);
-  const product = products.find(p => p.id === id);
-  console.log(`ProductviewRelatedItem product: ${JSON.stringify(id)}`)
-  console.log(`ProductviewRelatedItem product: ${products.length}`);
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    // Find the product with matching id from products array
+    const foundProduct = products.find(product => `${product.id}` === id);
+    // Set the found product to state
+    if (foundProduct) {
+      setProduct(foundProduct);
+    }
+  }, [id, products]);
+
   return product ? (
     <div className="items">
       <div className="tred-pro">
         <div className="tr-pro-img">
-          <a href="product.html">
+          <Link to={`/product/${id}`}>
             <img
               className="img-fluid"
               src={product.image[0].url}
@@ -22,7 +30,7 @@ const ProductviewRelatedItem = (id ) => {
               src={product.image[0].url}
               alt="additional"
             />
-          </a>
+          </Link>
         </div>
         <div className="Pro-lable">
           <span className="p-text">New</span>
@@ -46,7 +54,7 @@ const ProductviewRelatedItem = (id ) => {
       </div>
       <div className="caption">
         <h3>
-          <a href="product.html">Fresh organic fruit (50gm)</a>
+          <a href="product.html">{product.name}</a>
         </h3>
         <div className="rating">
           <i className="fa fa-star c-star" />
@@ -56,11 +64,13 @@ const ProductviewRelatedItem = (id ) => {
           <i className="fa fa-star-o" />
         </div>
         <div className="pro-price">
-          <span className="new-price">$130.00 USD</span>
+          <span className="new-price">${product.price} USD</span>
         </div>
       </div>
     </div>
-  ) : <div>No data</div>;
+  ) : (
+    <div>No data {id}</div>
+  );
 };
 
 export default ProductviewRelatedItem;
