@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ProductsStateContext } from "../../contexts/ProductsContext";
 import { useParams } from 'react-router-dom';
 import ProductSizeChart from './ProductSizeChart';
+import ProductviewRelatedItem from './ProductviewRelatedItem';
 
 const ProductView = () => {
     const { products } = useContext(ProductsStateContext);
@@ -1033,10 +1034,11 @@ const ProductView = () => {
                                 <h2>Related Products</h2>
                             </div>
                             {/* <div className="releted-products owl-carousel owl-theme"> */}
-                            <div className="" style={{ flexDirection: 'row' }}>
+
+                            <ProductviewRelatedItem id="1"/>                            <div className="" style={{ flexDirection: 'row' }}>
                                 {
-                                    // product.related_products.map((item,index) => (<ProductviewRelatedItem id={item}/>))
-                                    product.related_products.map((item, index) => (<div><h1>{item}</h1></div>))
+                               // product.related_products.map((item,index) => (<ProductviewRelatedItem id={item}/>))
+                                 //   product.related_products.map((item, index) => (<div><h1>{item}</h1></div>))
                                 }
                                 {/* <div className="items">
                                     <div className="tred-pro">
