@@ -26,12 +26,6 @@ const ProductTabDetails = (product: any) => {
                                     <h4>More details</h4>
                                     <ul className="tab-description">
                                         <li>{product.description}</li>
-                                        {/* <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
-                                    <li>Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsumum is simply dummy text.</li>
-                                    <li>type here your detail one by one li more add</li>
-                                    <li>has been the industry’s standard dummy text ever since. Lorem Ips</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                                    <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ‘s standard dummy text. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum is simply dummy text.</li> */}
                                     </ul>
                                 </div>
                                 <div className="tab-2content">

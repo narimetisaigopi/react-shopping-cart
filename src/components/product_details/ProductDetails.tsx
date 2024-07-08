@@ -1,7 +1,19 @@
+import { CartDispatchContext } from "../../contexts/CartContext";
 import { ProductComponentProps } from "../../interfaces/IProduct";
-import React, { FC } from 'react';
+import { FC, useContext , useState} from 'react';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const ProductDetails: FC<ProductComponentProps> = ({ product }) => {
+interface ProductDetailsProps extends ProductComponentProps {
+    setSelectedColor: (color: string) => void;
+    selectedColor: string
+}
+
+const ProductDetails: FC<ProductDetailsProps> = ({ product ,setSelectedColor, selectedColor}) => {
+
+    const [selectedSize, setSelectedSize] = useState("");
+
+    const dispatch = useContext(CartDispatchContext);
+
     return (
         <div>
             <h4>{product.name}</h4>
@@ -31,14 +43,17 @@ const ProductDetails: FC<ProductComponentProps> = ({ product }) => {
                     <span className="p-discount">-8%</span>
                 </div>
             </div>
-            <span className="pro-details">Hurry up! only <span className="pro-number">7</span> products left in stock!</span>
+            <span className="pro-details">Hurry up! only <span className="pro-number">1</span> products left in stock!</span>
             <p>{product.short_description}</p>
             {product.size_color && <div className="pro-items">
                 <span className="pro-size">Size:</span>
                 <ul className="pro-wight">
                     {
                         product.size_color && product.size_color.map((item, index) => (
-                            <li key={index} className="active">
+                            <li key={index} className={item.size === selectedSize ? "active" : ""} onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedSize(item.size);
+                            }}>
                                 <a href="/">{item.size}</a>
                             </li>
                         ))
@@ -53,18 +68,18 @@ const ProductDetails: FC<ProductComponentProps> = ({ product }) => {
                             <li key={index} style={{ display: 'inline-block', margin: '5px' }} onClick={(e) => {
                                 e.preventDefault();
                                 console.log(`${item.color}`);
-                                // setSelectedColor(item.color);
+                                setSelectedColor(item.color);
                             }}>
                                 <a href="/">
                                     <div style={{
                                         backgroundColor: item.color,
-                                        width: '40px',
-                                        height: '40px',
+                                        width: '25px',
+                                        height: '25px',
                                         borderRadius: '50%',
                                         display: 'flex',
                                         justifyContent: 'center',
                                         alignItems: 'center',
-                                        // border: selectedColor === item.color ? '3px solid #000' : '1px solid #ccc'
+                                        border: selectedColor === item.color ? '1px solid #000' : '1px solid #ccc'
                                     }}></div>
                                 </a>
                             </li>
@@ -107,3 +122,4 @@ const ProductDetails: FC<ProductComponentProps> = ({ product }) => {
 }
 
 export default ProductDetails;
+
