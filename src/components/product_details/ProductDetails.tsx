@@ -24,15 +24,12 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product ,setSelectedColor, se
     
       const handleRemoveToCart = (e: any) => {
         e.preventDefault();
-        // const removedProduct = { ...product, quantity: 1 };
-        // removeToCart(dispatch, removedProduct);
         removeFromCart(dispatch,product.id);
       }
 
       const isAddedToCart = () => {
        var res = items.find((e: any) => e.id === product.id);
        res= res !== undefined
-       console.log(`isAddedToCart ${JSON.stringify(res)}`)
        return res;
       }
 
