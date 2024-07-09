@@ -44,10 +44,6 @@ const ProductCard = ({ data }) => {
   const handleAddToCart = () => {
     const product = { ...data, quantity: 1 };
     addToCart(dispatch, product);
-    //setIsAdded(true);
-    // setTimeout(() => {
-    //   setIsAdded(false);
-    // }, 3500);
   };
 
   const handleRemoveToCart = () => {

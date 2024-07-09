@@ -1,4 +1,4 @@
-import { CartDispatchContext } from "../../contexts/CartContext";
+import { addToCart, CartDispatchContext, CartStateContext, removeFromCart, removeToCart } from "../../contexts/CartContext";
 import { ProductComponentProps } from "../../interfaces/IProduct";
 import { FC, useContext , useState} from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -13,6 +13,28 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product ,setSelectedColor, se
     const [selectedSize, setSelectedSize] = useState("");
 
     const dispatch = useContext(CartDispatchContext);
+
+    const { items } = useContext(CartStateContext);
+
+    const handleAddToCart = (e: any) => {
+        e.preventDefault();
+        const addedProduct = { ...product, quantity: 1 };
+        addToCart(dispatch, addedProduct);
+      };
+    
+      const handleRemoveToCart = (e: any) => {
+        e.preventDefault();
+        // const removedProduct = { ...product, quantity: 1 };
+        // removeToCart(dispatch, removedProduct);
+        removeFromCart(dispatch,product.id);
+      }
+
+      const isAddedToCart = () => {
+       var res = items.find((e: any) => e.id === product.id);
+       res= res !== undefined
+       console.log(`isAddedToCart ${JSON.stringify(res)}`)
+       return res;
+      }
 
     return (
         <div>
@@ -100,7 +122,11 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product ,setSelectedColor, se
             </div>
             <div className="pro-btn">
                 <a href="wishlist.html" className="btn btn-style1"><i className="fa fa-heart" /></a>
-                <a href="cart.html" className="btn btn-style1"><i className="fa fa-shopping-bag" /> Add to cart</a>
+                {
+                    !isAddedToCart() ? (<a href="cart.html" className="btn btn-style1" onClick={handleAddToCart}><i className="fa fa-shopping-bag" /> Add to cart</a>) : 
+                    (<a href="cart.html" className="btn btn-style1" onClick={handleRemoveToCart}><i className="fa fa-shopping-bag" /> Remove from cart</a>)
+                }
+                
                 <a href="checkout-1.html" className="btn btn-style1">Buy now</a>
             </div>
             <div className="share">
