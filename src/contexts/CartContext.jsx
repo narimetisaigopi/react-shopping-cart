@@ -10,6 +10,7 @@ export const CartStateContext = createContext();
 export const CartDispatchContext = createContext();
 
 const reducer = (state, action) => {
+  console.log(`state.isCartOpen ${state.isCartOpen}`);
   switch (action.type) {
     case "TOGGLE_CART_POPUP":
       return {

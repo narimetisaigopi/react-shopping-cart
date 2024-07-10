@@ -12,7 +12,7 @@ const ProductviewRelatedItem = ({ id }) => {
     // Set the found product to state
     if (foundProduct) {
       setProduct(foundProduct);
-    }
+  }
   }, [id, products]);
 
   return product ? (

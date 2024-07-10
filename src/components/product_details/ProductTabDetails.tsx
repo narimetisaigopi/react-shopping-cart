@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import ProductSizeChart from "./ProductSizeChart"
 
 const ProductTabDetails = (product: any) => {
+
+    // useEffect(() => {
+
+    // },[product]);
     return (<section className="section-b-padding pro-page-content">
         <div className="container">
             <div className="row">
@@ -102,9 +107,11 @@ const ProductTabDetails = (product: any) => {
                             </div>
                             <div className="tab-pane fade show" id="tab-3">
                                 {
-                                    product.videos ? <div className="embed-responsive embed-responsive-16by9">
-                                        <iframe height={630} src={`https://www.youtube.com/embed/${product.videos.split('v=')[1].split('&')[0]}`} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                                    </div> : (
+                                    product.videos ?
+                                     <div className="embed-responsive embed-responsive-16by9">
+                                        <iframe height={630} src={product.videos} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                                    </div> 
+                                    : (
                                         <h1>No Video</h1>
                                     )
                                 }

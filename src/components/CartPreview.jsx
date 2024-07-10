@@ -9,16 +9,25 @@ import {
 } from "../contexts/CartContext";
 
 import { ProductsStateContext } from '../contexts/ProductsContext';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const CartPreview = () => {
   const { items, isCartOpen } = useContext(CartStateContext);
   const dispatch = useContext(CartDispatchContext);
   const { products, itemGroups } = useContext(ProductsStateContext);
-  //const history = useHistory();
+  const history = useHistory();
 
   const handleRemoveCart = (cartId) => {
       removeFromCart(dispatch,cartId);
   }
+
+  function handleClick(id) {
+    history.push(`/product/${id}`);
+  }
+
+  const handleToggleCartPopup = () => {
+    toggleCartPopup(dispatch);
+}
 
   if (products === null || itemGroups === null) {
     return (
@@ -51,56 +60,7 @@ const CartPreview = () => {
       </div>
     );
   }
-
-  // const handleRemove = (productId) => {
-  //   return removeFromCart(dispatch, productId);
-  // };
-
-  // const handleProceedCheckout = () => {
-  //   toggleCartPopup(dispatch);
-  //   history.push("/checkout");
-  // };
-
-
-  // return (
-  //   <div className={classNames("cart-preview", { active: isCartOpen })}>
-  //     <ul className="cart-items">
-  //       {items.map((product) => {
-  //         return (
-  //           <li className="cart-item" key={product.name}>
-  //             <img className="product-image" src={product.image[0].url} />
-  //             <div className="product-info">
-  //               <p className="product-name">{product.name}</p>
-  //               <p className="product-price">{product.price}</p>
-  //             </div>
-  //             <div className="product-total">
-  //               <p className="quantity">
-  //                 {products !== null ? `${(product.quantity * products?.find(x => x.id === product.id).quantity) + ' ' + product.quantity_type.name
-  //                   }` : `${product.quantity} ${product.quantity > 1 ? "Nos." : "No."}`}
-  //               </p>
-  //               <p className="amount">{product.quantity * product.price}</p>
-  //             </div>
-  //             <button
-  //               className="product-remove"
-  //               onClick={() => handleRemove(product.id)}
-  //             >
-  //               ×
-  //             </button>
-  //           </li>
-  //         );
-  //       })}
-  //     </ul>
-  //     <div className="action-block">
-  //       <button
-  //         type="button"
-  //         className={classNames({ disabled: items && items.length === 0 })}
-  //         onClick={handleProceedCheckout}
-  //       >
-  //         PROCEED TO CHECKOUT
-  //       </button>
-  //     </div>
-  //   </div>
-  // );
+  
   function CalculateSubTotal() {
     var SubTotal = 0;
 
@@ -123,16 +83,15 @@ const CartPreview = () => {
       <ul className="cart-item-loop">
         {items.map((product) => {
           var item1 = itemGroups?.find(x => x.item_id === product.item_id);
-          
-          return <li className="cart-item">
+          return <a onClick={(e)=> {
+            handleClick(product.id);
+          }} href="javascript:void(0)"> <li className="cart-item">
             <div className="cart-img">
-              <a href="product.html">
                 <img src={product.image[0].url} alt="cart-image" className="img-fluid" />
-              </a>
             </div>
             <div className="cart-title">
               {/* <h6><a href="product.html">{product.name + (item1 !== undefined ? ' - ' + item1.groups[0].options[product.groups[Object.keys(product.groups)[0]]] : '')}</a></h6> */}
-              <h6><a href="product.html">{product.name}</a></h6>
+              <h6>{product.name}</h6>
               <div className="cart-pro-info">
                 <div className="cart-qty-price">
                   <span className="quantity">{products !== null ? `${product.quantity + ' x ₹' + product.price + ' = '}` : `${product.quantity} ${product.quantity > 1 ? "Nos." : "No."}`}</span>
@@ -144,6 +103,7 @@ const CartPreview = () => {
               </div>
             </div>
           </li>
+          </a>
         })}
       </ul>
       <ul className="subtotal-title-area">
