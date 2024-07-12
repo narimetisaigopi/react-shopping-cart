@@ -54,6 +54,9 @@ export interface ProductModel {
         color: string;
         imgs: string;
     }[];
+    selectedSize?: string;
+    selectedColor?: string;
+
 }
 
 export interface ProductComponentProps {

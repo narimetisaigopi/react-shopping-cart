@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import classNames from "classnames";
 import {
@@ -9,7 +9,6 @@ import {
 } from "../contexts/CartContext";
 
 import { ProductsStateContext } from '../contexts/ProductsContext';
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const CartPreview = () => {
   const { items, isCartOpen } = useContext(CartStateContext);
@@ -17,17 +16,22 @@ const CartPreview = () => {
   const { products, itemGroups } = useContext(ProductsStateContext);
   const history = useHistory();
 
-  const handleRemoveCart = (cartId) => {
+  const handleRemoveCart = (cartId: any) => {
       removeFromCart(dispatch,cartId);
   }
 
-  function handleClick(id) {
+  function handleClick(id :any) {
+    window.location.reload();
     history.push(`/product/${id}`);
   }
 
   const handleToggleCartPopup = () => {
     toggleCartPopup(dispatch);
 }
+
+// useEffect(() => {
+//   console.log(`useEffectitems ${JSON.stringify(items)}`)
+// },[]);
 
   if (products === null || itemGroups === null) {
     return (
@@ -61,14 +65,27 @@ const CartPreview = () => {
     );
   }
   
-  function CalculateSubTotal() {
-    var SubTotal = 0;
+  
 
-    items.map((x) => {
-      SubTotal = SubTotal + (x.price * x.quantity);
-    });
-    return '₹' + SubTotal;
-  }
+  function getProductPrice(product : any) {
+    var res = 0;
+    if(product && product.selectedSize && product.selectedColor){
+        var data = product.size_color.find((e: any) => e.size === product.selectedSize && e.color === product.selectedColor);
+        res = data.price;
+    }else{
+      res = product.price;
+    }
+    return res;
+}
+
+function CalculateSubTotal() {
+  var SubTotal = 0;
+
+  items.map((x : any) => {
+    SubTotal = SubTotal + (getProductPrice(x) * x.quantity);
+  });
+  return '₹' + SubTotal;
+}
 
   return (
     <div className="mini-cart">
@@ -81,8 +98,12 @@ const CartPreview = () => {
         </p>
       </div>
       <ul className="cart-item-loop">
-        {items.map((product) => {
-          var item1 = itemGroups?.find(x => x.item_id === product.item_id);
+        {items.map((product : any) => {
+          const getProductPriceNumber = Number(getProductPrice(product));
+          const productQuantityNumber = Number(product.quantity);
+          const totalProductPrice = getProductPriceNumber * productQuantityNumber;
+          console.log(`product ${JSON.stringify(product)}`)
+          var item1 = itemGroups?.find((x : any) => x.item_id === product.item_id);
           return <a onClick={(e)=> {
             handleClick(product.id);
           }} href="javascript:void(0)"> <li className="cart-item">
@@ -94,12 +115,12 @@ const CartPreview = () => {
               <h6>{product.name}</h6>
               <div className="cart-pro-info">
                 <div className="cart-qty-price">
-                  <span className="quantity">{products !== null ? `${product.quantity + ' x ₹' + product.price + ' = '}` : `${product.quantity} ${product.quantity > 1 ? "Nos." : "No."}`}</span>
-                  &nbsp;<span className="price-box">{'₹' + (product.price * product.quantity)}</span>
+                  <span className="quantity">{products !== null ? `${product.quantity + ' x ₹' + totalProductPrice + ' = '}` : `${product.quantity} ${product.quantity > 1 ? "Nos." : "No."}`}</span>
+                  &nbsp;<span className="price-box">{`₹${totalProductPrice}`}</span>
                 </div>
-                <div className="delete-item-cart">
-                  <button onClick={(e) => handleRemoveCart(product.id)}><i className="icon-trash icons" /></button>
-                </div>
+                {/* <div className="delete-item-cart"> */}
+                  <a onClick={(e) => handleRemoveCart(product.id)}><i className="icon-trash icons" style={{color:'red'}}/></a>
+                {/* </div> */}
               </div>
             </div>
           </li>

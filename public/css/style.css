@@ -793,6 +793,16 @@ button.navbar-toggler span.line::after{
 .mini-cart ul.subtotal-title-area li.mini-cart-btns .cart-btns a:first-child{
     margin-top: 0;
 }
+/* Mobile view adjustments */
+@media (max-width: 767px) {
+    .mini-cart {
+        width: 100%;
+        right: -100%;
+    }
+    .mini-cart.show {
+        right: 0;
+    }
+}
 /* header-bottom css */
 .header-bottom-area{
     background-color: #fff;

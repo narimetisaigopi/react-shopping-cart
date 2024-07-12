@@ -21,13 +21,29 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product, setSelectedColor, se
 
     const [selectedSize, setSelectedSize] = useState("");
 
+    let [colorsList, setColorsList] = useState<any>([]);
+    let [weightsList, setWeightList] = useState<any>([]);
+    
+
     const dispatch = useContext(CartDispatchContext);
 
     const { items } = useContext(CartStateContext);
 
     useEffect(() => {
         if (product && product.size_color) {
+            const seenSizes = new Set();
+            weightsList = [];
+            colorsList = [];
+            product.size_color.forEach(item => {
+              if (!seenSizes.has(item.color)) {
+                seenSizes.add(item.color);
+                colorsList.push(item);
+              }
+            });
+            setColorsList(colorsList);
             setSelectedSize(product.size_color[0].size);
+            setWeightList(product.size_color.filter((e) => e.color == selectedColor));
+            
         }
     }, [
         product, selectedColor, setSelectedColor
@@ -43,6 +59,8 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product, setSelectedColor, se
 
     const handleAddToCart = (e: any) => {
         e.preventDefault();
+        product.selectedColor = selectedColor;
+        product.selectedSize = selectedSize;
         const addedProduct = { ...product, quantity: 1 };
         addToCart(dispatch, addedProduct);
     };
@@ -81,37 +99,20 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product, setSelectedColor, se
                 }
             </div>
             <div className="pro-price">
-                <span className="new-price">${getSelectedSizeDetails() != null ? getSelectedSizeDetails()?.price : product.price}</span>
-                <span className="old-price"><del>${getSelectedSizeDetails() != null ? getSelectedSizeDetails()?.mrp : product.price}</del></span>
+                <span className="new-price">₹{getSelectedSizeDetails() != null ? getSelectedSizeDetails()?.price : product.price}</span>
+                <span className="old-price"><del>₹{getSelectedSizeDetails() != null ? getSelectedSizeDetails()?.mrp : product.price}</del></span>
                 <div className="Pro-lable">
                     <span className="p-discount">{getSelectedSizeDetails()!= null ? getSelectedSizeDetails()?.discountPer : 0}%</span>
                 </div>
             </div>
             <span className="pro-details">Hurry up! only <span className="pro-number">1</span> products left in stock!</span>
             <p>{product.short_description}</p>
-            {product.size_color && <div className="pro-items">
-                <span className="pro-size">Size:</span>
-                <ul className="pro-wight">
-                    {
-                        product.size_color && product.size_color.map((item, index) => (
-                            <li key={index} onClick={(e) => {
-                                e.preventDefault();
-                                setSelectedSize(item.size);
-                            }}>
-                                <a href="/" className={selectedSize === item.size ? 'active' : ''} style={{
-                                    border: selectedSize === item.size ? '1px solid black' : 'none',
-                                    padding: '5px 10px',
-                                }}>{item.size}</a>
-                            </li>
-                        ))
-                    }
-                </ul>
-            </div>}
+            
             {
-                product.size_color && <div className="product-color">
+                colorsList && <div className="product-color">
                     <span className="color-label">Color:</span>
                     <span className="color">
-                        {product.size_color && product.size_color.map((item, index) => (
+                        { colorsList.map((item : any, index: number) => (
                             <li key={index} style={{ display: 'inline-block', margin: '5px' }} onClick={(e) => {
                                 e.preventDefault();
                                 console.log(`${item.color}`);
@@ -135,6 +136,24 @@ const ProductDetails: FC<ProductDetailsProps> = ({ product, setSelectedColor, se
                     </span>
                 </div>
             }
+            {weightsList && <div className="pro-items">
+                <span className="pro-size">Size:</span>
+                <ul className="pro-wight">
+                    {
+                         weightsList.map((item : any, index: number) => (
+                            <li key={index} onClick={(e) => {
+                                e.preventDefault();
+                                setSelectedSize(item.size);
+                            }}>
+                                <a href="/" className={selectedSize === item.size ? 'active' : ''} style={{
+                                    border: selectedSize === item.size ? '1px solid black' : 'none',
+                                    padding: '5px 10px',
+                                }}>{item.size}</a>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>}
 
             <div className="pro-qty">
                 <span className="qty">Quantity:</span>

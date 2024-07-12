@@ -22,7 +22,7 @@ const ProductView = () => {
 
     // Handle back button click
     const goBack = () => {
-        history.goBack(); // Navigate back to previous screen
+        history.push('/'); // Navigate back to previous screen
     };
 
     useEffect(() => {
